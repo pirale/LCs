@@ -1,5 +1,3 @@
-library(ape)
-library(phytools)
 library(reshape2)
 library(igraph)
 library(parallel)
