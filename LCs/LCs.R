@@ -6,11 +6,10 @@ library(parallel)
 metadata = read.csv('metadata.csv', as.is=T)
 rownames(metadata) = metadata$vesperID
 
-#Load lists of same-patient clonal isolates and historical isolates for exclusion
+#Load lists of same-patient clonal isolates for exclusion
 eschDuplicates = scan('escherichiaColiSamePatientClonal.txt', what = 'character')
 klebDuplicates = scan('klebsiellaPneumoniaeSamePatientClonal.txt', what = 'character')
 
-#historical = scan('CobraRepo/historicalVesperIDs.txt', what = 'character')
 exclude = unique(c(eschDuplicates, klebDuplicates))
 metadata = subset(metadata, !vesperID %in% exclude)
 
